@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Auth::routes(['verify' => true]);
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');

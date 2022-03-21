@@ -23,7 +23,7 @@
                       <label for="deadline">Deadline</label>
                       <input type="date" id="deadline" name="deadline">
                     </div>
-                    <input type="submit" value="Add">
+                    <input type="submit" value="Add" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; cursor:pointer;">
                   </form>
                 </div>
             </div>

@@ -18,7 +18,8 @@
                   <div>
                     Deadline: {{ $task->deadline }}
                   </div>
-                  {{-- {{ var_dump($task) }} --}}
+                  <a href="/edit?id={{ $task->id }}" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; ">Edit</a>
+                  <a href="/del?id={{ $task->id }}" class="border rounded px-2" style="background: rgb(223, 57, 51); color: white; ">Delete</a>
                 </div>
             </div>
         </div>
