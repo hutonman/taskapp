@@ -10,7 +10,17 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index() {
-        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 0)->select('users.name', 'tasks.title', 'tasks.deadline', 'users.email')->get();
+        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 0)->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->get();
+        return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
+    }
+
+    public function overDeadline() {
+        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 0)->where('deadline' , '<', new Date() )->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->get();
+        return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
+    }
+
+    public function completed() {
+        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 1)->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->get();
         return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
     }
 }
