@@ -11,13 +11,22 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                   <form action="/add-task" method="post">
                     @csrf
+                    <div style="color: red;">
+                      @error ('title') {{ $message }} @enderror
+                    </div>
                     <div>
                       <label for="title">Title: </label>
                       <input type="text" id="title" name="title">
                     </div>
+                    <div style="color: red;">
+                      @error ('content') {{ $message }} @enderror
+                    </div>
                     <div>
                       <label for="content">Content: </label>
                       <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                    </div>
+                    <div style="color: red;">
+                      @error ('deadline') {{ $message }} @enderror
                     </div>
                     <div>
                       <label for="deadline">Deadline</label>
