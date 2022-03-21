@@ -24,6 +24,10 @@
                         <div class="flex-1">{{ $task->deadline }}</div>
                     </a>
                     @endforeach
+
+                    <div style="margin: 0 auto;">
+                        {{ $tasks->links() }}
+                    </div>
                 </div>
             </div>
         </div>

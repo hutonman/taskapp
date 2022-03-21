@@ -13,7 +13,6 @@
             @csrf
 
             <!-- Name -->
-            {{-- @error('name') {{ $message }} @enderror --}}
             <div>
                 <x-label for="name" :value="__('Name')" />
 
@@ -21,7 +20,6 @@
             </div>
 
             <!-- Email Address -->
-            {{-- @error('email') {{ $message }} @enderror --}}
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
 
@@ -29,7 +27,6 @@
             </div>
 
             <!-- Password -->
-            {{-- @error('password') {{ $message }} @enderror --}}
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
 
@@ -40,7 +37,6 @@
             </div>
 
             <!-- Confirm Password -->
-            {{-- @error('password_confirmation') {{ $message }} @enderror --}}
             <div class="mt-4">
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
