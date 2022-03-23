@@ -82,9 +82,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
     
-    // Route::get('profile', function () {
         Route::middleware('verified')->group(function() {
-            Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+            Route::get('dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
     
             Route::get('add-task', [AddTaskController::class, 'index']);
             Route::post('add-task', [AddTaskController::class, 'add']);
@@ -95,6 +95,8 @@ Route::middleware('auth')->group(function () {
             Route::post('edit', [EditController::class, 'edit']);
     
             Route::get('del', [DeleteController::class, 'index']);
+
+            Route::get('over', [DashboardController::class, 'over']);
+            Route::get('status', [DashboardController::class, 'status']);
         });
-    // })->middleware('verified');
 });

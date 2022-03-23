@@ -9,8 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <input type="checkbox" name="over" id="over"><label for="over">期限超過のみ</label></input>
-                    <input type="checkbox" name="completed" id="completed"><label for="completed">完了済み表示</label></input>
+                    <input type="checkbox" name="over" id="over" @if( isset($over) && $over ) checked @endif><label for="over">期限超過のみ</label></input>
+                    <input type="checkbox" name="status" id="status" @if( isset($status) && $status ) checked @endif><label for="status">完了済み表示</label></input>
                     <a href="/add-task" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; ">+Add Task</a>
                     <div class="flex mb-4 text-xl">
                         <div class="flex-1">Name</div>
@@ -32,4 +32,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $overEl = document.getElementById('over');
+        $statusEl = document.getElementById('status');
+        $overEl.addEventListener('click', function(e) {
+            this.checked ? location.href = '/over' : location.href = '/dashboard';
+        })
+        $statusEl.addEventListener('click', function(e) {
+            this.checked ? location.href = '/status' : location.href = '/dashboard';
+        })
+    </script>
 </x-app-layout>

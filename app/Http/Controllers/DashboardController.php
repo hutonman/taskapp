@@ -15,13 +15,13 @@ class DashboardController extends Controller
         return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
     }
 
-    // public function overDeadline() {
-    //     $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 0)->where('deadline' , '<', new Date() )->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->paginate(2);
-    //     return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
-    // }
+    public function over() {
+        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 0)->where('deadline' , '<', date('Y-m-d') )->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->paginate(5);
+        return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks, 'over' => true]);
+    }
 
-    // public function completed() {
-    //     $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 1)->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->paginate(2);
-    //     return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks]);
-    // }
+    public function status() {
+        $tasks = DB::table('tasks')->join('users', 'tasks.user_id', '=', 'users.id')->where('users.email', Auth::user()->email)->where('status' , 1)->select('tasks.id', 'users.name', 'tasks.title', 'tasks.deadline', 'users.email')->paginate(5);
+        return view('dashboard', ['user' => Auth::user(), 'tasks' => $tasks, 'status' => true]);
+    }
 }
