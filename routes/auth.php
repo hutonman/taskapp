@@ -98,5 +98,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('over', [DashboardController::class, 'over']);
             Route::get('status', [DashboardController::class, 'status']);
+
+            Route::post('search', [DashboardController::class, 'search'])->name('search');
         });
 });
