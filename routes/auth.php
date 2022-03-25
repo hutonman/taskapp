@@ -18,11 +18,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function() {
-//     return view('welcome');
-// })->name('home');
-
-
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -37,9 +32,6 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-// Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
-// ->name('verification.notice');
 
 Route::get('/', function() {
     return view('welcome');
@@ -98,5 +90,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('over', [DashboardController::class, 'over']);
             Route::get('status', [DashboardController::class, 'status']);
+
+            Route::post('search', [DashboardController::class, 'search'])->name('search');
         });
 });
