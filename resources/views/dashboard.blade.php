@@ -9,13 +9,22 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <input type="checkbox" name="over" id="over" @if( isset($over) && $over ) checked @endif><label for="over">期限超過のみ</label></input>
-                    <input type="checkbox" name="status" id="status" @if( isset($status) && $status ) checked @endif><label for="status">完了済み表示</label></input>
-                    <a href="/add-task" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; ">+Add Task</a>
+                    <div class="flex justify-between">
+                        <div>
+                            <input type="checkbox" name="over" id="over" @if( isset($over) && $over ) checked @endif />
+                            <x-label-inline for="over">{{ __('期限超過のみ') }}</x-label>
+                            <input type="checkbox" name="status" id="status" @if( isset($status) && $status ) checked @endif />
+                            <x-label-inline for="status">{{ __('完了済み表示') }}</x-label>
+                        </div>
+                        <div>
+                            <form action="/add-task" method="get"><x-button>{{ __('＋タスク追加') }}</x-button></form>
+                        </div>
+                    </div>
+                    {{-- <a href="/add-task" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; ">+Add Task</a> --}}
                     <div class="flex mb-4 text-xl">
-                        <div class="flex-1">Name</div>
-                        <div class="flex-1">Title</div>
-                        <div class="flex-1">Deadline</div>
+                        <div class="flex-1">名前</div>
+                        <div class="flex-1">タイトル</div>
+                        <div class="flex-1">期限</div>
                     </div>
                     @foreach($tasks as $task)
                     <a href="/detail?id={{ $task->id }}" class="flex border-t py-2">

@@ -15,24 +15,27 @@
                       @error ('title') {{ $message }} @enderror
                     </div>
                     <div>
-                      <label for="title">Title: </label>
-                      <input type="text" id="title" name="title">
+                      <x-label for="title">{{ __('タイトル') }}</x-label>
+                      <x-input type="text" id="title" name="title" />
                     </div>
                     <div style="color: red;">
                       @error ('content') {{ $message }} @enderror
                     </div>
-                    <div>
-                      <label for="content">Content: </label>
-                      <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                    <div class="mt-4">
+                      <x-label for="content">{{ __('内容') }}</x-label>
+                      <x-textarea name="content" id="content" cols="30" rows="10"></x-textarea>
                     </div>
                     <div style="color: red;">
                       @error ('deadline') {{ $message }} @enderror
                     </div>
-                    <div>
-                      <label for="deadline">Deadline</label>
-                      <input type="date" id="deadline" name="deadline">
+                    <div class="mt-4">
+                      <x-label for="deadline">{{ __('期限') }}</x-label>
+                      <x-input type="date" id="deadline" name="deadline" />
                     </div>
-                    <input type="submit" value="Add" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; cursor:pointer;">
+                    <div class="mt-4">
+                      {{-- <input type="submit" value="Add" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; cursor:pointer;"> --}}
+                      <x-button>{{ __('＋タスク追加') }}</x-button>
+                    </div>
                   </form>
                 </div>
             </div>

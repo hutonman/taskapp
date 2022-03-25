@@ -9,26 +9,33 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                  <form action="/edit?id={{ $task->id }}" method="post">
+                  <form action="/edit" method="post">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $task->id }}">
                     <div>
-                      <label for="title">Title: </label>
-                      <input type="text" id="title" name="title" value="{{ $task->title }}"></input>
+                      <x-label for="title" :value="__('タイトル')" />
+                      {{-- <input class="" type="text" id="title" name="title" value="{{ $task->title }}"></input> --}}
+                      <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $task->title }}" />
                     </div>
-                    <div>
-                      <label for="content">Content: </label>
-                      <textarea name="content" id="content" cols="30" rows="10">{{ $task->content }}</textarea>
+                    <div class="mt-4">
+                      <x-label for="content" :value="__('内容')" />
+                      <x-textarea name="content" id="content" cols="30" rows="10" >{{ $task->content }}</x-textarea>
                     </div>
-                    <div>
-                      <label for="deadline">Deadline</label>
-                      <input type="date" id="deadline" name="deadline" value="{{ $task->deadline }}">
+                    <div class="mt-4">
+                      <x-label for="deadline" :value="__('期限')" />
+                      <x-input type="date" id="deadline" name="deadline" value="{{ $task->deadline }}" />
                     </div>
-                    <div>
-                      <label for="status">Status</label>
-                      <input type="radio" id="incomplete" name="status" value="0" @if(!$task->status) checked @endif><label for="incomplete">Incomplete</label>
-                      <input type="radio" id="complete" name="status" value="1" @if($task->status) checked @endif><label for="complete">Complete</label>
+                    <div class="mt-4">
+                      <x-label for="status" :value="__('ステータス')" />
+                      <input type="radio" id="incomplete" name="status" value="0" @if(!$task->status) checked @endif>
+                      <x-label-inline class="inline" for="incomplete">{{ __('未対応') }}</x-label-inline>
+                      <input type="radio" id="complete" name="status" value="1" @if($task->status) checked @endif>
+                      <x-label-inline for="complete">{{ __('完了') }}</x-label-inline>
                     </div>
-                    <input type="submit" value="Update" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; cursor:pointer;">
+                    {{-- <input type="submit" value="Update" class="border rounded px-2" style="background: rgb(70, 108, 233); color: white; cursor:pointer;"> --}}
+                    <div class="mt-4">
+                      <x-button>{{ __('更新') }}</x-button>
+                    </div>
                   </form>
                 </div>
             </div>

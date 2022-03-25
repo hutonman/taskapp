@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class DeleteController extends Controller
 {
-    public function index() {
-        DB::table('tasks')->where('id', $_GET['id'])->delete();
+    public function index(Request $request) {
+        DB::table('tasks')->where('id', $request->id)->delete();
         return redirect('dashboard');
     }
 }
