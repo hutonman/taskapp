@@ -13,7 +13,7 @@
                 <x-button>{{ __('検索') }}</x-button>
             </form>
             @if (isset($keyword))
-                <div class="mb-4">
+                <div class="mb-4 text-gray-200">
                     検索ワード: {{ $keyword }}
                 </div>
             @endif

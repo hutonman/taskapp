@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class AddTaskController extends Controller
 {
@@ -18,7 +18,7 @@ class AddTaskController extends Controller
             'deadline' => 'required',
         ]);
         
-        DB::table('tasks')->insert([
+        Task::insert([
             'title' => $request->title,
             'content' => $request->content,
             'deadline' => $request->deadline,
