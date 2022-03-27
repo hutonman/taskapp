@@ -44,10 +44,10 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        Auth::login($user);
 
         event(new Registered($user));
 
-        Auth::login($user);
 
         return redirect('email/verify');
     }
