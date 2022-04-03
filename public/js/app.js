@@ -5255,33 +5255,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/components/Test.tsx":
-/*!******************************************!*\
-  !*** ./resources/js/components/Test.tsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Test": () => (/* binding */ Test)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var Test = function Test() {
-  var str;
-  var num;
-  str = "3";
-  console.log(str);
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "test"
-  });
-};
-
-/***/ }),
-
 /***/ "./resources/ts/app.ts":
 /*!*****************************!*\
   !*** ./resources/ts/app.ts ***!
@@ -5305,6 +5278,27 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
 
 
 __webpack_require__(/*! ./components/App */ "./resources/ts/components/App.js");
+
+/***/ }),
+
+/***/ "./resources/ts/components/Test.tsx":
+/*!******************************************!*\
+  !*** ./resources/ts/components/Test.tsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Test": () => (/* binding */ Test)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var Test = function Test() {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: "testaaaaaaaaaaa"
+  });
+};
 
 /***/ }),
 
@@ -5359,7 +5353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _js_components_Test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../js/components/Test */ "./resources/js/components/Test.tsx");
+/* harmony import */ var _Test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Test */ "./resources/ts/components/Test.tsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -5371,7 +5365,7 @@ var App = function App() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_js_components_Test__WEBPACK_IMPORTED_MODULE_2__.Test, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Test__WEBPACK_IMPORTED_MODULE_2__.Test, {})
       })
     })
   });

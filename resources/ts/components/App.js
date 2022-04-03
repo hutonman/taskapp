@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Test } from '../../js/components/Test';
+import { Test } from './Test';
 
 export const App = () => {
     return (
